@@ -27,7 +27,7 @@ public class TextLib {
         return output.toString();
     }
 
-    public static ArrayList<TrainingExample> readDocInfo(String filename){
+    public static ArrayList<TrainingExample> readTrainingExamples(String filename){
         ArrayList<TrainingExample> trainingExampleList = new ArrayList<>();
         Scanner scanner;
 
@@ -48,13 +48,12 @@ public class TextLib {
         return trainingExampleList;
     }
 
-    private static DocInfo processLine(String line) {
+    private static TrainingExample processLine(String line) {
         String[] values = line.split(",");
-        String filename = values[0].trim();
-        double TRAD_FLESCH = Double.parseDouble(values[91].trim());
-        double TRAD_KINCAID = Double.parseDouble(values[92].trim());
+        String text = values[0].trim();
+        boolean isPredatory = Boolean.parseBoolean(values[1].trim());
 
-        return new DocInfo(filename, TRAD_FLESCH, TRAD_KINCAID);
+        return new TrainingExample(text, isPredatory);
     }
 
     public static ArrayList<String> splitIntoSentences(String text) {
@@ -84,7 +83,6 @@ public class TextLib {
     private static String getWordFromLine(String line) {
         return line.substring(0, line.indexOf("="));
     }
-
 
 }
 

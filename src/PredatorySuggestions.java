@@ -10,7 +10,6 @@ public class PredatorySuggestions {
         return false;
     }
 
-
     private static boolean containsPredatoryPhrases(String text) {
         int predatoryCount = 0, notpredatoryCount = 0;
         for(TrainingExample example: PREDATORY_PHRASES_LIST) {

@@ -1,0 +1,22 @@
+better,neg
+love,pos
+have to,neg
+want,pos
+not like,neg
+if you,neg
+do not,neg
+you should,neg
+worked out,pos
+please do,pos
+because,pos
+you better,neg
+come,pos
+can you,pos
+hate,neg
+hate it,neg 
+when,pos
+I bought,neg
+I did,neg
+I helped,neg 
+how could you,neg 
+

@@ -1,7 +1,9 @@
-public class PredatorySuggestions {
-    //put our methods here
+import java.util.ArrayList;
 
-    public void isPredatory(String text) {
+public class PredatorySuggestions {
+    private static final ArrayList<TrainingExample> PREDATORY_PHRASES_LIST = TextLib.readPredatoryPhrases("data/GuiltAndThreat.txt");
+
+    public static boolean isPredatory(String text) {
         if (containsPredatoryPhrases(text)) return true;
         if (containsPronouns(text)) return true;
 
@@ -9,11 +11,22 @@ public class PredatorySuggestions {
     }
 
 
-    private boolean containsPredatoryPhrases(String text) {
-        return true;
+    private static boolean containsPredatoryPhrases(String text) {
+        int predatoryCount = 0, notpredatoryCount = 0;
+        for(TrainingExample example: PREDATORY_PHRASES_LIST) {
+            if (text.contains(example.getText())){
+                if(example.getIsPredatory() == true) predatoryCount++;
+                if (example.getIsPredatory() == false) notpredatoryCount++;
+            }
+        }
+        if (predatoryCount > notpredatoryCount) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    private boolean containsPronouns(String text) {
+    private static boolean containsPronouns(String text) {
         String[] stuff = file.split(",");
         String[] words = phrase.split(" ");
         for (String word : words) {

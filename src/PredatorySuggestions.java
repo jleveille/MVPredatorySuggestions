@@ -10,5 +10,6 @@ public class PredatorySuggestions {
 
             }
         }
+        return true;
     }
 }

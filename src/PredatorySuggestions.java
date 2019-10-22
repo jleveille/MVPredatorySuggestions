@@ -7,9 +7,9 @@ public class PredatorySuggestions {
         String[] words = phrase.split(" ");
         for (String word : words) {
             if(word.equals(stuff)){
-
-            }
-        }
-        return true;
+                return true;
+    }
+}
+        return false;
     }
 }

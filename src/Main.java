@@ -16,19 +16,15 @@ public class Main {
         dataset.add(new TrainingExample("I am inevitable", true));
         dataset.add(new TrainingExample("I love puppies so much", false));
 
-        double error = getError(suggestions, dataset);
+        double error = getError("data/DataSet.txt");
         System.out.println(error);
     }
 
-    private static double getError(ArrayList<TrainingExample> suggestions, ArrayList<TrainingExample> dataset) {
-        int correct = 0;
-        for(TrainingExample suggestion: suggestions) {
-            for(TrainingExample data: dataset) {
-                if(data.getText().equals(suggestion.getText())) {
-                    if(data.getIsPredatory() == suggestion.getIsPredatory()) correct++;
-                }
-            }
+    private static double getError(String filename) {
+        ArrayList<TrainingExample> list = TextLib.readTrainingExamples(filename);
+        for (TrainingExample example : list) {
+            String text = example.getText();
+            boolean experimental = PredatorySuggestions.isPredatory(text);
         }
-        return (double) correct/dataset.size();
     }
 }

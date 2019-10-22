@@ -27,7 +27,7 @@ public class TextLib {
         return output.toString();
     }
 
-    public static ArrayList<TrainingExample> readTrainingExamples(String filename){
+    public static ArrayList<TrainingExample> readDataSet(String filename){
         ArrayList<TrainingExample> trainingExampleList = new ArrayList<>();
         Scanner scanner;
 
@@ -55,32 +55,42 @@ public class TextLib {
 
         return new TrainingExample(text, isPredatory);
     }
-    public static ArrayList<String> splitIntoSentences(String text) {
-        ArrayList<String> output = new ArrayList<>();
 
-        Locale locale = Locale.US;
-        BreakIterator breakIterator = BreakIterator.getSentenceInstance(locale);
-        breakIterator.setText(text);
+    public static ArrayList<TrainingExample> readPredatoryPhrases(String filename){
+        ArrayList<TrainingExample> predatoryPhrasesList = new ArrayList<>();
+        Scanner scanner;
 
-        int prevIndex = 0;
-        int boundaryIndex = breakIterator.first();
-        while(boundaryIndex != BreakIterator.DONE) {
-            String sentence = text.substring(prevIndex, boundaryIndex).trim();
-            if (sentence.length()>0)
-                output.add(sentence);
-            prevIndex = boundaryIndex;
-            boundaryIndex = breakIterator.next();
+        try {
+            scanner = new Scanner(new FileInputStream(filename), "UTF-8");
+            String line = scanner.nextLine();
+            while (scanner.hasNextLine()) {
+                line = scanner.nextLine();
+                TrainingExample example = processLinePhrase(line);
+                predatoryPhrasesList.add(example);
+            }
+
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found " + filename);
         }
-
-        String sentence = text.substring(prevIndex).trim();
-        if (sentence.length()>0)
-            output.add(sentence);
-
-        return output;
+        return predatoryPhrasesList;
     }
 
-    private static String getWordFromLine(String line) {
-        return line.substring(0, line.indexOf("="));
+    private static TrainingExample processLinePhrase(String line) {
+        String[] values = line.split(",");
+        String phrase = values[0].trim();
+        String connotation = values[1].trim();
+        boolean isPredatory;
+        if (connotation.equals("pos")) {
+            isPredatory = false;
+        } else if (connotation.equals("neg")){
+            isPredatory = true;
+        } else {
+            System.out.println("THERE IS AN ERROR IN PROCESS LINE FOR PHRASE");
+            isPredatory = true;
+        }
+        return new TrainingExample(phrase, isPredatory);
     }
 
 

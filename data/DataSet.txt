@@ -1,0 +1,16 @@
+You better listen to me, true                    
+Now watch what I'll do, true
+Sally likes Joe, false
+How dare you insult me, true
+I literally saved you, true
+You helped me, false
+When will you ever repay me?, true
+You never do anything , true
+She better help me, true
+Betsy raked the garden, false
+Why would you even do that?, true
+Joe hasn't done his homework, false
+I will do my work, false
+They went to the football game, false
+You shall regret this, true
+You are so lovely, false

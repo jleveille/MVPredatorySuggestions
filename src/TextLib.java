@@ -5,6 +5,7 @@ import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
+/*hkeiw*/
 
 public class TextLib {
     public static String readFileAsString(String filename) {

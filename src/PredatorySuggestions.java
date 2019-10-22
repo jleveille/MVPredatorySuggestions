@@ -6,7 +6,9 @@ public class PredatorySuggestions {
         String[] stuff = file.split(",");
         String[] words = phrase.split(" ");
         for (String word : words) {
-            if(word.equals(stuff))
+            if(word.equals(stuff)){
+
+            }
         }
     }
 }

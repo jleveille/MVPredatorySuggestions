@@ -23,8 +23,8 @@ public class TrainingExample {
         return text;
     }
 
-
-    public String toString(){
+    @Override
+    public String toString() {
         return text + ":" + isPredatory;
     }
 }

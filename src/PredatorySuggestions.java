@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class PredatorySuggestions {
-    public static final ArrayList<String> PRONOUNS_LIST = TextLib.readOneWordFiles("data/Pronouns");
-    public static final ArrayList<String> ACTIONS_LIST = TextLib.readOneWordFiles("data/Action.txt");
+    private static final ArrayList<String> PRONOUNS_LIST = TextLib.readOneWordFiles("data/Names.txt");
+    private static final ArrayList<String> ACTIONS_LIST = TextLib.readOneWordFiles("data/Action.txt");
     private static final ArrayList<TrainingExample> PREDATORY_PHRASES_LIST = TextLib.readPredatoryPhrases("data/GuiltAndThreat(LargeText).txt");
 
     public static boolean isPredatory(String text) {
@@ -41,23 +41,14 @@ public class PredatorySuggestions {
     private static boolean pronounFollowedByAction(String text){
         String[] words = text.split(" ");
         for (int i = 0; i < words.length -1; i++) {
-            if(containsPronouns(words[i]) && containsActions(words[i+1])) return true;
+            if(containsList(words[i], PRONOUNS_LIST) && containsList(words[i+1], ACTIONS_LIST)) return true;
         }
         return false;
     }
 
-    private static boolean containsPronouns(String word) {
-        for (String pronoun : PRONOUNS_LIST) {
-                if (word.equals(pronoun)) {
-                    return true;
-                }
-            }
-        return false;
-    }
-
-    private static boolean containsActions(String word) {
-        for (String action : ACTIONS_LIST) {
-                if (word.equals(action)) {
+    private static boolean containsList(String word, ArrayList<String> list) {
+        for (String item : list) {
+                if (word.equals(item)) {
                     return true;
                 }
             }

@@ -5,7 +5,7 @@ public class PredatorySuggestions {
 
     //put our methods here
 
-    public boolean isPredatory(String text) {
+    public static boolean isPredatory(String text) {
         if (containsPredatoryPhrases(text)) return true;
         if (containsPronouns(text)) return true;
 
@@ -13,11 +13,11 @@ public class PredatorySuggestions {
     }
 
 
-    private boolean containsPredatoryPhrases(String text) {
+    private static boolean containsPredatoryPhrases(String text) {
         return true;
     }
 
-    private boolean containsPronouns(String text) {
+    private static boolean containsPronouns(String text) {
         String[] words = text.split(" ");
         for (TrainingExample pronoun : PRONOUNS_LIST) {
             for (String word : words) {

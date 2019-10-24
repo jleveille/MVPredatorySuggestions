@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class PredatorySuggestions {
-    public static final ArrayList<TrainingExample> PRONOUNS_LIST = TextLib.readPronouns("data/Pronouns");
+    public static final ArrayList<String> PRONOUNS_LIST = TextLib.readOneWordFiles("data/Pronouns");
     private static final ArrayList<TrainingExample> PREDATORY_PHRASES_LIST = TextLib.readPredatoryPhrases("data/GuiltAndThreat.txt");
 
     public static boolean isPredatory(String text) {
@@ -31,7 +31,7 @@ public class PredatorySuggestions {
 
     private static boolean containsPronouns(String text) {
         String[] words = text.split(" ");
-        for (TrainingExample pronoun : PRONOUNS_LIST) {
+        for (String pronoun : PRONOUNS_LIST) {
             for (String word : words) {
                 if (word.equals(pronoun)) {
                     return true;

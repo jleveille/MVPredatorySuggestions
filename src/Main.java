@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         double error = getPercentError("data/DataSet.txt");
         System.out.println(error);
-    }
+}
 
     private static double getPercentError(String filename) {
         double correct = 0;

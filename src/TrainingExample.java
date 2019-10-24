@@ -22,4 +22,9 @@ public class TrainingExample {
     public String getText() {
         return text;
     }
+
+
+    public String toString(){
+        return text + ":" + isPredatory;
+    }
 }

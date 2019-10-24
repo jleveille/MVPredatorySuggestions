@@ -3,18 +3,30 @@ import java.util.ArrayList;
 public class PredatorySuggestions {
     public static final ArrayList<TrainingExample> PRONOUNS_LIST = TextLib.readPronouns("data/Pronouns");
 
-    //put our methods here
+
+    private static final ArrayList<TrainingExample> PREDATORY_PHRASES_LIST = TextLib.readPredatoryPhrases("data/GuiltAndThreat.txt");
+
+    private static boolean containsPredatoryPhrases(String text) {
+        int predatoryCount = 0, notpredatoryCount = 0;
+        for(TrainingExample example: PREDATORY_PHRASES_LIST) {
+            if (text.contains(example.getText())){
+                if(example.getIsPredatory() == true) predatoryCount++;
+                if (example.getIsPredatory() == false) notpredatoryCount++;
+            }
+        }
+        if (predatoryCount > notpredatoryCount) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     public boolean isPredatory(String text) {
         if (containsPredatoryPhrases(text)) return true;
         if (containsPronouns(text)) return true;
 
         return false;
-    }
-
-
-    private boolean containsPredatoryPhrases(String text) {
-        return true;
     }
 
     private boolean containsPronouns(String text) {

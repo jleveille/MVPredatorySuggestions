@@ -27,7 +27,7 @@ public class TextLib {
         return output.toString();
     }
 
-    public static ArrayList<TrainingExample> readDataSet(String filename){
+    public static ArrayList<TrainingExample> readTwoWordFiles(String filename){
         ArrayList<TrainingExample> trainingExampleList = new ArrayList<>();
         Scanner scanner;
 
@@ -36,7 +36,7 @@ public class TextLib {
             String line = scanner.nextLine();
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
-                TrainingExample example = processLine(line);
+                TrainingExample example = processLineTwoWordFiles(line);
                 trainingExampleList.add(example);
             }
 
@@ -46,14 +46,6 @@ public class TextLib {
             System.out.println("File not found " + filename);
         }
         return trainingExampleList;
-    }
-
-    private static TrainingExample processLine(String line) {
-        String[] values = line.split(",");
-        String text = values[0].trim();
-        boolean isPredatory = Boolean.parseBoolean(values[1].trim());
-
-        return new TrainingExample(text, isPredatory);
     }
 
     public static ArrayList<TrainingExample> readPredatoryPhrases(String filename){
@@ -77,6 +69,35 @@ public class TextLib {
         return predatoryPhrasesList;
     }
 
+    public static ArrayList<String> readOneWordFiles(String filename){
+        ArrayList<String> list = new ArrayList<>();
+        Scanner scanner;
+
+        try {
+            scanner = new Scanner(new FileInputStream(filename), "UTF-8");
+            String line = scanner.nextLine();
+            while (scanner.hasNextLine()) {
+                line = scanner.nextLine();
+                String input = line.trim();
+                list.add(input);
+            }
+
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found " + filename);
+        }
+        return list;
+    }
+
+    private static TrainingExample processLineTwoWordFiles(String line) {
+        String[] values = line.split(",");
+        String text = values[0].trim();
+        boolean isPredatory = Boolean.parseBoolean(values[1].trim());
+
+        return new TrainingExample(text, isPredatory);
+    }
+
     private static TrainingExample processLinePhrase(String line) {
         String[] values = line.split(",");
         String phrase = values[0].trim();
@@ -91,64 +112,6 @@ public class TextLib {
             isPredatory = true;
         }
         return new TrainingExample(phrase, isPredatory);
-    }
-
-
-    //Predatory language METHODS
-    private static TrainingExample processLineActions(String line) {
-        String[] values = line.split(" ");
-        String text = values[0].trim();
-        boolean isPredatory = Boolean.parseBoolean(values[1].trim());
-
-        return new TrainingExample(text, isPredatory);
-    }
-
-    private static TrainingExample processLineOneWord(String line) {
-//        String[] values = line.split(",");
-        String text = line.trim();
-        boolean isPredatory = Boolean.parseBoolean(text);
-        return new TrainingExample(text, isPredatory);
-    }
-    public static ArrayList<TrainingExample> readActions(String filename){
-        ArrayList<TrainingExample> trainingExampleList = new ArrayList<>();
-        Scanner scanner;
-
-        try {
-            scanner = new Scanner(new FileInputStream(filename), "UTF-8");
-            String line = scanner.nextLine();
-            while (scanner.hasNextLine()) {
-                line = scanner.nextLine();
-                TrainingExample example = processLineActions(line);
-                trainingExampleList.add(example);
-            }
-
-            scanner.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found " + filename);
-        }
-        return trainingExampleList;
-    }
-
-    public static ArrayList<TrainingExample> readPronouns(String filename){
-        ArrayList<TrainingExample> trainingExampleList = new ArrayList<>();
-        Scanner scanner;
-
-        try {
-            scanner = new Scanner(new FileInputStream(filename), "UTF-8");
-            String line = scanner.nextLine();
-            while (scanner.hasNextLine()) {
-                line = scanner.nextLine();
-                TrainingExample example = processLineOneWord(line);
-                trainingExampleList.add(example);
-            }
-
-            scanner.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found " + filename);
-        }
-        return trainingExampleList;
     }
 
 }

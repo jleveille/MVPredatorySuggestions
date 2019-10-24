@@ -54,9 +54,8 @@ public class TextLib {
 
         try {
             scanner = new Scanner(new FileInputStream(filename), "UTF-8");
-            String line = scanner.nextLine();
             while (scanner.hasNextLine()) {
-                line = scanner.nextLine();
+                String line = scanner.nextLine();
                 TrainingExample example = processLinePhrase(line);
                 predatoryPhrasesList.add(example);
             }
@@ -75,9 +74,8 @@ public class TextLib {
 
         try {
             scanner = new Scanner(new FileInputStream(filename), "UTF-8");
-            String line = scanner.nextLine();
             while (scanner.hasNextLine()) {
-                line = scanner.nextLine();
+                String line = scanner.nextLine();
                 String input = line.trim();
                 list.add(input);
             }

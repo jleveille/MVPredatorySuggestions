@@ -5,7 +5,7 @@ How dare you insult me, true
 I literally saved you, true
 You helped me, false
 When will you ever repay me?, true
-You never do anything , true
+You never do anything, true
 She better help me, true
 Betsy raked the garden, false
 Why would you even do that?, true
@@ -14,7 +14,7 @@ I will do my work, false
 They went to the football game, false
 You shall regret this, true
 You are so lovely, false
-"I hope you're not threatening me, boy," the Other said, gaze taking in the vamps.,true
+"I hope you're not threatening me, boy," the Other said, gaze taking in the vamps., true
 Just because we can't fight each other doesn't mean I must help you., true
 You always look neat and clean - even if you are a little out of style., false
 First you ruin my tie, now my shoes., true

@@ -7,13 +7,13 @@ public class Main {
 }
 
     private static double getPercentError(String filename) {
-        double correct = 0;
+        double incorrect = 0;
         ArrayList<TrainingExample> list = TextLib.readDataSet(filename);
         for (TrainingExample example : list) {
             String text = example.getText();
             boolean experimental = PredatorySuggestions.isPredatory(text);
-            if (experimental == example.getIsPredatory()) correct++;
+            if (experimental != example.getIsPredatory()) incorrect++;
         }
-        return correct/list.size() *100;
+        return incorrect/list.size() *100;
     }
 }

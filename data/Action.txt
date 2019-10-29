@@ -81,7 +81,7 @@ Paddle,neg
 Peek,pos
 Pet,neg
 Pick,neg
-Picnicv
+Picnic,pos
 Play,pos
 Point,neg
 Ponder,pos
@@ -166,7 +166,7 @@ Allocated,pos
 Analyzed,neg
 Annotated,pos
 Answered,pos
-Anticipated
+Anticipated,neg
 Appeared,pos
 Applied,pos
 Appointed,pos
@@ -196,7 +196,7 @@ Changed,neg
 Chartered,pos
 Checked,neg
 Chose,neg
-Clarifiedv
+Clarified,pos
 Classified,neg
 Cleared,neg
 Closed,neg
@@ -229,7 +229,7 @@ Convinced,neg
 Coordinated,pos
 Corrected,pos
 Correlated,pos
-Corresponded
+Corresponded,pos
 Counseled,neg
 Dealt,neg
 Debated,pos
@@ -300,7 +300,7 @@ Informed,pos
 Inspected,pos
 Instituted,pos
 Interpreted,pos
-Interrogated
+Interrogated,neg
 Interviewed,pos
 Introduced,pos
 Invented,pos
@@ -329,7 +329,7 @@ Modified,pos
 Monitored,pos
 Motivated,pos
 Named,pos
-Negotiated
+Negotiated,neg
 Observed,pos
 Obtained,pos
 Operated,neg
@@ -349,7 +349,7 @@ Printed,pos
 Processed,pos
 Produced,pos
 Promoted,pos
-Prosecuted
+Prosecuted,neg
 Protected,neg
 Provided,pos
 Publicized,pos

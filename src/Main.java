@@ -8,7 +8,7 @@ public class Main {
 
     private static double getPercentError(String filename) {
         double correct = 0;
-        ArrayList<TrainingExample> list = TextLib.readTwoWordFiles(filename);
+        ArrayList<TrainingExample> list = TextLib.readDataSet(filename);
         for (TrainingExample example : list) {
             String text = example.getText();
             boolean experimental = PredatorySuggestions.isPredatory(text);

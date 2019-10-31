@@ -95,7 +95,7 @@ public class TextLib {
             scanner = new Scanner(new FileInputStream(filename), "UTF-8");
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String input = line.trim();
+                String input = line.toLowerCase().trim();
                 list.add(input);
             }
 

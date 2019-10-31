@@ -24,7 +24,7 @@ public class PredatorySuggestions {
         int predatoryCount = 0, notpredatoryCount = 0;
         for (TrainingExample example : PREDATORY_PHRASES_LIST) {
             if (text.contains(example.getText())) {
-                if (example.getIsPredatory() == true) {
+                if (example.getIsPredatory()) {
                     predatoryCount++;
                 } else {
                     notpredatoryCount++;
@@ -43,8 +43,11 @@ public class PredatorySuggestions {
         for (int i = 0; i < words.size() - 1; i++) {
             if (containsList(words.get(i), PRONOUNS_LIST)) {
                 for (TrainingExample example : ACTIONS_LIST) {
-                    if (words.get(i + 1).equals(example))
-                        if (example.getIsPredatory()) return true;
+                    if (words.get(i + 1).equals(example)) {
+                        if (example.getIsPredatory()) {
+                            return true;
+                        }
+                    }
                 }
             }
         }

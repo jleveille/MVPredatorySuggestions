@@ -40,7 +40,7 @@ There is no way for you to fix this now, false
 Please don’t speak to me, I’m done talking to you, true
 Don’t follow me at this point, there is no way for you to receive my remorse, true
 You cannot be serious about this, true
-Why can you not help me cook right now?, true
+Why can you not help me cook right now?, false
 I gave him a birthday present from Target, false
 Thank you for finishing the pie, false
 Did you prepare the oven for the turkey tonight?, false

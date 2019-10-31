@@ -12,7 +12,10 @@ public class Main {
         for (TrainingExample example : list) {
             String text = example.getText();
             boolean experimental = PredatorySuggestions.isPredatory(text);
-            if (experimental != example.getIsPredatory()) incorrect++;
+            if (experimental != example.getIsPredatory()){
+                incorrect++;
+                System.out.println(text);
+            }
         }
         return incorrect/list.size() *100;
     }

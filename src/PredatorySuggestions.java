@@ -31,11 +31,7 @@ public class PredatorySuggestions {
                 }
             }
         }
-        if (predatoryCount > notpredatoryCount) {
-            return true;
-        } else {
-            return false; //not enough information
-        }
+        return (predatoryCount > notpredatoryCount);
     }
 
     private static boolean pronounFollowedByNegAction(String text) {

@@ -29,3 +29,18 @@ You cause all the misfortunes in this family., true
 That beautiful horse looks friendly., false
 One lady gave me a box of shells., false
 She has oftenest advised and helped me in my progress through college., false
+Then a strange, fearful sense of danger terrified me., false
+The wolf finally decided they were no threat and turned his back on them, trotting away across the vast grassland., false
+I’ve cut enough out of my paycheck for you, true
+I have dropped you for days now near Oakland, you should be grateful, true
+I’ve done too little for you, false
+You literally have never done any work for the task, and you slowed us down, true
+Why have you never tried to help out in this process?, true
+There is no way for you to fix this now, false
+Please don’t speak to me, I’m done talking to you, true
+Don’t follow me at this point, there is no way for you to receive my remorse, true
+You cannot be serious about this, true
+Why can you not help me cook right now?, false
+I gave him a birthday present from Target, false
+Thank you for finishing the pie, false
+Did you prepare the oven for the turkey tonight?, false
